@@ -1,6 +1,6 @@
 # Code for All 🌟 - Single Page Application
 
-> **Entregável 3**: SPA com JavaScript Avançado e Bootstrap 5
+> **Entregável final**: Deploy
 
 Plataforma web moderna para democratizar o acesso à educação em tecnologia.
 
