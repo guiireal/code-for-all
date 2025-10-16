@@ -1,553 +1,524 @@
-# Code for All 🌟 - Single Page Application
+# Code for All 🌟 - Plataforma Web Acessível
 
-> **Entregável final**: Deploy
+> **Entregável 4**: Git/GitHub + Acessibilidade WCAG 2.1 + Documentação Técnica
 
-Plataforma web moderna para democratizar o acesso à educação em tecnologia.
+Plataforma web desenvolvida em JavaScript puro para democratizar o acesso à educação em tecnologia.
 
-## 🚀 Visão Geral
+---
 
-Este projeto foi completamente transformado em uma **Single Page Application (SPA)** utilizando JavaScript puro (ES6+), sem frameworks externos, com Bootstrap 5 para estilização. A aplicação oferece navegação fluida, validação de formulários em tempo real e uma experiência moderna e responsiva.
+## 🎯 Objetivos do Entregável 4
 
-## 📋 Especificações Técnicas do Entregável 3
+| Categoria | Meta | Status |
+|-----------|------|--------|
+| **🔄 Git/GitHub** | Repositório organizado + commits descritivos | 🎯 Em andamento |
+| **♿ Acessibilidade** | WCAG 2.1 Nível AA | 🎯 Em implementação |
+| **📚 Documentação** | README profissional completo | ✅ Concluído |
+| **🎨 Front-End** | SPA com Bootstrap 5 | ✅ Concluído |
+| **⚡ Performance** | Otimização e boas práticas | 🎯 Planejado |
 
-### ✅ Requisitos Atendidos
+---
 
-1. **✅ Manipulação do DOM**: Sistema completo de SPA com navegação dinâmica
-2. **✅ Sistema de Templates JavaScript**: Todas as páginas são templates reutilizáveis
-3. **✅ Validação de Formulários**: Sistema robusto com feedback em tempo real
-4. **✅ Bootstrap 5**: Framework CSS eliminando CSS customizado
-5. **✅ Interatividade Avançada**: Filtros, animações e feedback visual
+## 🚀 Sobre o Projeto
 
-### 🛠️ Tecnologias Utilizadas
+### Conceito
 
-- **HTML5**: Estrutura semântica única (index.html)
-- **Bootstrap 5.3.2**: Framework CSS responsivo completo
-- **JavaScript ES6+**: Lógica da aplicação (100% vanilla)
-- **Canvas API**: Gráficos customizados
-- **LocalStorage API**: Persistência de dados
+Uma **Single Page Application (SPA)** moderna desenvolvida com:
 
-## 📁 Arquitetura da Aplicação
+- JavaScript ES6+ puro (Vanilla JS)
+- Bootstrap 5 via CDN
+- Roteamento baseado em hash
+- Sistema de templates dinâmicos
+- Validação de formulários em tempo real
 
-```
+### Características Principais
+
+✅ **SPA Funcional**: Navegação suave sem recarregar a página  
+✅ **8 Páginas**: Home, Sobre, Projetos, Cadastro, Doações, Transparência, Blog, Contato  
+✅ **Responsivo**: Bootstrap 5 com design mobile-first  
+✅ **Validação**: Formulários com feedback em tempo real  
+✅ **Componentes**: Header e Footer reutilizáveis  
+✅ **Filtros**: Sistema de filtros para projetos por categoria  
+
+---
+
+## 📁 Estrutura do Projeto
+
+```plaintext
 code-for-all/
-├── index.html                 # ⭐ ÚNICO ponto de entrada (SPA)
+├── index.html                # Ponto de entrada único
 ├── assets/
 │   ├── js/
-│   │   ├── app.js            # 🎯 Core da aplicação e roteamento
-│   │   ├── components.js     # 🧩 Header e Footer reutilizáveis
-│   │   ├── templates.js      # 📄 Templates de todas as páginas
-│   │   ├── validation.js     # ✅ Sistema de validação
-│   │   └── charts.js         # 📊 Gráficos Canvas (mantido)
-│   ├── images/               # 🖼️ Assets estáticos
-│   └── audios/               # 🎵 Depoimentos
-├── README.md                 # 📖 Este arquivo
-├── *.html (backup)           # 📦 Páginas antigas (referência)
-└── wireframes/               # 🎨 Documentação visual
+│   │   ├── app.js           # Core da SPA (roteamento + lifecycle)
+│   │   ├── components.js    # Header e Footer reutilizáveis
+│   │   ├── templates.js     # Templates HTML das 8 páginas
+│   │   ├── validation.js    # Sistema de validação
+│   │   └── projects-filter.js # Filtros de projetos
+│   ├── css/backup_css/      # CSS antigo (backup)
+│   ├── images/              # Imagens do site
+│   └── audios/              # Depoimentos em áudio
+├── backup_html/             # HTMLs antigos (antes da SPA)
+├── wireframes/              # Wireframes do projeto
+└── README.md                # Este arquivo
 ```
 
-## 🎯 Sistema SPA - Como Funciona
+### 📦 Dependências
 
-### 1. Roteamento Baseado em Hash
+**Nenhuma dependência npm!** O projeto usa apenas:
+
+- Bootstrap 5.3.2 (CDN)
+- Bootstrap Icons 1.11.1 (CDN)
+- Google Fonts - Noto Sans (CDN)
+
+---
+
+## 🛠️ Tecnologias
+
+| Tecnologia | Uso | Versão |
+|------------|-----|--------|
+| **HTML5** | Estrutura semântica | - |
+| **CSS3** | Bootstrap 5 via CDN | 5.3.2 |
+| **JavaScript** | ES6+ Vanilla JS | - |
+| **Bootstrap** | Framework CSS responsivo | 5.3.2 |
+| **Bootstrap Icons** | Biblioteca de ícones | 1.11.1 |
+| **Git** | Controle de versão | - |
+| **GitHub** | Repositório remoto | - |
+
+---
+
+## 🎯 Funcionalidades Implementadas
+
+### 1. Sistema SPA (Single Page Application)
 
 ```javascript
-// URLs da aplicação
-https://site.com/            → Página inicial
-https://site.com/#/sobre     → Página sobre
-https://site.com/#/projetos  → Projetos
-https://site.com/#/cadastro  → Formulário de voluntários
-```
-
-### 2. Fluxo de Navegação
-
-```
-Usuário clica em link
-        ↓
-Hash da URL muda (#/sobre)
-        ↓
-app.js detecta mudança (hashchange event)
-        ↓
-Mostra loading spinner
-        ↓
-templates.js retorna HTML da página
-        ↓
-Renderiza conteúdo em #app-content
-        ↓
-Inicializa features (validação, gráficos, etc.)
-        ↓
-Esconde spinner + animação fade-in
-```
-
-## 📄 Sistema de Templates
-
-Arquivo: `assets/js/templates.js`
-
-Cada página é uma função pura que retorna HTML:
-
-```javascript
-const Templates = {
-    home: () => `<div class="container">...</div>`,
-    sobre: () => `<div class="container">...</div>`,
-    // ... todas as páginas
+// Roteamento baseado em hash
+const routes = {
+  "/": "home",
+  "/sobre": "sobre",
+  "/projetos": "projetos",
+  "/cadastro": "cadastro",
+  "/doacoes": "doacoes",
+  "/transparencia": "transparencia",
+  "/blog": "blog",
+  "/contato": "contato"
 };
 ```
 
-### Páginas Implementadas
+**Fluxo de Navegação:**
 
-| Página | Rota | Descrição |
-|--------|------|-----------|
-| 🏠 **Home** | `/` | Hero, projetos, depoimentos, vídeos, CTA |
-| ℹ️ **Sobre** | `/sobre` | História, valores, equipe, gráficos |
-| 📊 **Projetos** | `/projetos` | Lista filtrada de projetos sociais |
-| 👥 **Cadastro** | `/cadastro` | Formulário completo de voluntários |
-| 💰 **Doações** | `/doacoes` | Campanhas e formulário de doação |
-| 📄 **Transparência** | `/transparencia` | Relatórios e documentos |
-| 📝 **Blog** | `/blog` | Notícias e newsletter |
-| 📞 **Contato** | `/contato` | Formulário e informações |
+1. Usuário clica em link (ex: "Sobre")
+2. URL muda para `#/sobre`
+3. Event listener detecta mudança (hashchange)
+4. `app.js` carrega template correspondente
+5. Conteúdo renderizado dinamicamente no `#app-content`
+6. Components atualizados (link ativo, título da página)
 
-## ✅ Sistema de Validação Avançado
+### 2. Sistema de Templates
 
-Arquivo: `assets/js/validation.js`
-
-### Funcionalidades
-
-1. **Validação em tempo real**
-   - Feedback visual instantâneo (is-valid/is-invalid)
-   - Mensagens de erro dinâmicas
-   - Validação no blur e input
-
-2. **Máscaras Automáticas**
-   ```javascript
-   CPF:      000.000.000-00
-   Telefone: (00) 00000-0000
-   CEP:      00000-000
-   ```
-
-3. **Tipos de Validação**
-   - ✅ Campos obrigatórios
-   - ✅ Formato de e-mail
-   - ✅ Padrões (regex)
-   - ✅ Comprimento mín/máx
-   - ✅ Valores numéricos (min/max)
-   - ✅ Data de nascimento (18-100 anos)
-   - ✅ Checkboxes obrigatórios
-
-4. **Persistência**
-   - Salva no localStorage
-   - Recupera submissões
-   - Histórico por formulário
-
-### Exemplo de Uso
+Cada página é uma função que retorna HTML:
 
 ```javascript
-// Inicializa validação
+const Templates = {
+  home: () => `<div>...</div>`,
+  sobre: () => `<div>...</div>`,
+  // ... demais páginas
+};
+```
+
+### 3. Validação de Formulários
+
+- Validação em tempo real (blur + input)
+- Feedback visual (Bootstrap classes: is-valid/is-invalid)
+- Máscaras automáticas (CPF, telefone, CEP)
+- Persistência no localStorage
+- Mensagens de erro descritivas
+
+```javascript
 Validation.init('cadastroForm');
 Validation.initMasks();
-
-// Validação automática:
-// - blur: valida campo
-// - input: revalida se inválido
-// - submit: valida tudo
 ```
 
-## 🧩 Componentes Reutilizáveis
+### 4. Componentes Reutilizáveis
 
-Arquivo: `assets/js/components.js`
+**Header:**
 
-### Header (Navbar)
+- Navbar responsiva
+- Menu hamburguer (mobile)
+- Logo SVG
+- Links com estado ativo
 
-- Logo SVG animado
-- Menu responsivo (hamburguer em mobile)
-- Links com indicador de página ativa
-- Bootstrap 5 navbar
-
-### Footer
+**Footer:**
 
 - Links rápidos
-- Redes sociais (Bootstrap Icons)
+- Redes sociais
 - Informações da ONG
-- Copyright
 
-### Métodos
+### 5. Filtros de Projetos
 
-```javascript
-Components.renderHeader()      // Renderiza navbar
-Components.renderFooter()      // Renderiza footer
-Components.updateActiveNav()   // Marca link ativo
-```
+Sistema de filtros por categoria:
 
-## 📊 Gráficos (Canvas API)
+- Educação
+- Saúde
+- Tecnologia
+- Meio Ambiente
+- Todos
 
-Arquivo: `assets/js/charts.js` + `ChartManager` em `app.js`
-
-### Gráficos Implementados
-
-1. **📊 Gráfico de Barras**
-   - Impacto social por região
-   - 5 regiões do Brasil
-   - Cores customizadas
-   - Eixos e labels
-
-2. **🥧 Gráfico de Pizza**
-   - Distribuição de recursos
-   - 5 tipos de projetos
-   - Legenda detalhada
-   - Percentuais
-
-3. **📈 Gráfico de Linha**
-   - Evolução de voluntários (2020-2025)
-   - Crescimento de 400%
-   - Pontos e valores
-   - Tendência ascendente
-
-### Carregamento Dinâmico
-
-```javascript
-// Gráficos só são renderizados quando a página /sobre é carregada
-if (page === 'sobre') {
-    ChartManager.init();
-}
-```
-
-## 🎨 Design System (Bootstrap 5)
-
-### Componentes Utilizados
-
-- ✅ **Grid System**: Responsividade (12 colunas)
-- ✅ **Cards**: Projetos, depoimentos, notícias
-- ✅ **Forms**: Validação visual integrada
-- ✅ **Buttons**: Variantes primary, success, outline
-- ✅ **Navbar**: Menu responsivo
-- ✅ **Modal**: Detalhes de projetos
-- ✅ **Alerts**: Mensagens de sucesso/erro
-- ✅ **Progress**: Barras de progresso de campanhas
-- ✅ **Badges**: Categorias de projetos
-- ✅ **List Group**: Documentos e relatórios
-
-### Cores do Theme
-
-```css
-Primary:   #0d6efd (Azul)
-Success:   #198754 (Verde)
-Warning:   #ffc107 (Amarelo)
-Danger:    #dc3545 (Vermelho)
-Info:      #0dcaf0 (Ciano)
-```
-
-### Ícones
-
-- **Bootstrap Icons v1.11.1** (CDN)
-- 2000+ ícones disponíveis
-- Uso: `<i class="bi bi-heart"></i>`
-
-## 🔄 Funcionalidades Interativas
-
-### 1. Filtro de Projetos
-
-```javascript
-// Filtra por categoria ao clicar
-Botão "Educação" → Mostra apenas projetos de educação
-Botão "Todos" → Mostra todos os projetos
-```
-
-- Animações suaves
-- Botões com estado ativo
-- Display:none/block dinâmico
-
-### 2. Formulários Dinâmicos
-
-- Validação em tempo real
-- Máscaras automáticas
-- Feedback visual (Bootstrap)
-- Loading spinner ao enviar
-- Mensagem de sucesso (Alert)
-- Reset após envio
-
-### 3. Animações
-
-```css
-/* Fade-in automático nos cards */
-.fade-in {
-    animation: fadeIn 0.5s ease-in;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-```
-
-- Intersection Observer
-- Animação ao scroll
-- Transições entre páginas
+---
 
 ## 🚀 Como Executar
 
-### Método 1: Servidor Local (Recomendado)
+### Opção 1: Abrir direto no navegador
+
+```bash
+# Simplesmente abra o arquivo index.html
+code-for-all/index.html
+```
+
+### Opção 2: Servidor local (recomendado)
 
 ```bash
 # Python 3
 python -m http.server 8000
 
-# Node.js (npx)
+# Node.js
 npx http-server -p 8000
 
 # PHP
 php -S localhost:8000
 ```
 
-Acesse: `http://localhost:8000`
+Depois acesse: `http://localhost:8000`
 
-### Método 2: Live Server (VS Code)
+### Opção 3: VS Code Live Server
 
-1. Instale extensão **Live Server**
-2. Botão direito em `index.html`
-3. "Open with Live Server"
+1. Instale a extensão "Live Server"
+2. Clique com botão direito em `index.html`
+3. Selecione "Open with Live Server"
 
-### Método 3: Navegador Direto
+---
 
-Abra `index.html` diretamente no navegador.
+## ♿ Acessibilidade (WCAG 2.1 AA)
 
-**⚠️ Nota**: Algumas funcionalidades podem ter limitações sem servidor local.
+### Implementações Planejadas
+
+#### Navegação por Teclado
+
+- [ ] Tab/Shift+Tab para navegação
+- [ ] Enter/Space para ativar elementos
+- [ ] Esc para fechar modais
+- [ ] Skip links ("Pular para conteúdo")
+
+#### ARIA e Semântica
+
+- [ ] Landmarks (`<nav>`, `<main>`, `<footer>`)
+- [ ] Labels descritivos em formulários
+- [ ] `aria-label` e `aria-describedby`
+- [ ] `aria-live` para anúncios dinâmicos
+- [ ] Estrutura de headings lógica
+
+#### Contraste de Cores
+
+- [ ] Texto: mínimo 4.5:1
+- [ ] UI components: mínimo 3:1
+- [ ] Modo escuro (opcional)
+- [ ] Alto contraste (opcional)
+
+#### Imagens e Mídia
+
+- [ ] Alt text descritivo em todas as imagens
+- [ ] Legendas em vídeos
+- [ ] Transcrições de áudios
+- [ ] Ícones decorativos com `aria-hidden="true"`
+
+#### Formulários
+
+- [ ] Labels sempre visíveis
+- [ ] Mensagens de erro claras
+- [ ] Feedback visual e textual
+- [ ] Validação acessível
+
+---
 
 ## 📱 Responsividade
 
-Totalmente responsivo com Bootstrap 5:
+| Breakpoint | Layout | Testado |
+|------------|--------|---------|
+| < 576px (Mobile) | 1 coluna | ✅ |
+| 576-768px (Tablet) | 2 colunas | ✅ |
+| 768-992px (Desktop) | 3 colunas | ✅ |
+| > 992px (Wide) | 3-4 colunas | ✅ |
 
-| Dispositivo | Layout |
-|-------------|--------|
-| Mobile (<576px) | 1 coluna |
-| Tablet (576-768px) | 2 colunas |
-| Desktop (768-1200px) | 3 colunas |
-| Wide (>1200px) | 3-4 colunas |
+Bootstrap 5 Grid System com classes responsivas.
 
-## 💾 Persistência de Dados
+---
 
-### LocalStorage
+## 🔄 Controle de Versão (Git/GitHub)
 
-Dados salvos no navegador:
+### Estrutura de Branches
 
-```javascript
-localStorage.setItem('cadastro', JSON.stringify(data));
-localStorage.setItem('doacao', JSON.stringify(data));
-localStorage.setItem('contato', JSON.stringify(data));
-localStorage.setItem('newsletter', JSON.stringify(data));
+```plaintext
+main          ← Branch principal (produção)
+  └── develop ← Branch de desenvolvimento (futuro)
 ```
 
-### Estrutura dos Dados
+### Padrão de Commits (Conventional Commits)
 
-```json
-{
-  "nome": "João Silva",
-  "email": "joao@example.com",
-  "cpf": "123.456.789-00",
-  "timestamp": "2025-10-13T10:30:00.000Z"
-}
+```plaintext
+<tipo>(<escopo>): <descrição>
+
+Exemplos:
+feat(spa): add routing system
+fix(validation): correct email regex
+docs(readme): update installation guide
+style(css): format with prettier
+refactor(components): simplify header logic
 ```
 
-## 🧪 Testes e Validação
+| Tipo | Descrição |
+|------|-----------|
+| `feat` | Nova funcionalidade |
+| `fix` | Correção de bug |
+| `docs` | Documentação |
+| `style` | Formatação |
+| `refactor` | Refatoração |
+| `perf` | Performance |
+| `test` | Testes |
+| `chore` | Manutenção |
 
-### Testes Realizados
-
-✅ Navegação entre todas as páginas  
-✅ Validação com dados inválidos  
-✅ Validação com dados válidos  
-✅ Máscaras automáticas (CPF, telefone, CEP)  
-✅ Filtros de projetos  
-✅ Renderização de gráficos  
-✅ Responsividade (mobile, tablet, desktop)  
-✅ Loading spinner  
-✅ Persistência no localStorage  
-✅ Links ativos na navegação  
-✅ Animações e transições  
-✅ Modals do Bootstrap  
-
-### Navegadores Testados
-
-- ✅ Chrome 120+
-- ✅ Firefox 120+
-- ✅ Edge 120+
-- ✅ Safari 17+
+---
 
 ## 📚 Documentação do Código
 
-### app.js - Aplicação Principal
+### app.js - Core da Aplicação
 
 ```javascript
 class App {
-    init()                    // Inicializa SPA
-    renderComponents()        // Renderiza header/footer
-    setupRouting()           // Configura rotas e listeners
-    loadPage()               // Carrega página baseada na rota
-    initPageFeatures()       // Inicializa features específicas
-    setupProjectFilters()    // Filtros de projetos
-    updateTitle()            // Atualiza document.title
-    showSpinner()            // Mostra loading
-    hideSpinner()            // Esconde loading
-    setupGlobalListeners()   // Intersection Observer, etc.
+  constructor()              // Inicializa app
+  init()                     // Setup inicial
+  renderComponents()         // Renderiza header/footer
+  setupRouting()            // Configura rotas e listeners
+  loadPage()                // Carrega página baseada na rota
+  initPageFeatures(page)    // Inicializa features específicas
+  setupProjectFilters()     // Configura filtros de projetos
+  showSpinner()             // Mostra loading
+  hideSpinner()             // Esconde loading
 }
+```
+
+### templates.js - Sistema de Templates
+
+```javascript
+const Templates = {
+  home: () => '...',         // Página inicial
+  sobre: () => '...',        // Sobre a ONG
+  projetos: () => '...',     // Lista de projetos
+  cadastro: () => '...',     // Formulário voluntários
+  doacoes: () => '...',      // Campanhas de doação
+  transparencia: () => '...', // Relatórios
+  blog: () => '...',         // Notícias
+  contato: () => '...'       // Formulário contato
+};
 ```
 
 ### validation.js - Validação
 
 ```javascript
 const Validation = {
-    init(formId)             // Inicializa validação do formulário
-    validateField(input)     // Valida campo individual
-    validateForm(form)       // Valida formulário completo
-    handleSubmit(form)       // Processa envio (simula API)
-    showSuccessMessage()     // Alert de sucesso
-    applyMask(input, type)   // Aplica máscara (CPF/TEL/CEP)
-    initMasks()              // Inicializa todas as máscaras
-}
+  init(formId)               // Inicializa validação
+  validateField(input)       // Valida campo individual
+  validateForm(form)         // Valida formulário completo
+  applyMask(input, type)     // Aplica máscara
+  handleSubmit(form)         // Processa envio
+};
 ```
 
 ### components.js - Componentes
 
 ```javascript
 const Components = {
-    renderHeader()           // Retorna HTML do header
-    renderFooter()           // Retorna HTML do footer
-    updateActiveNav(path)    // Marca link ativo
-}
+  renderHeader()             // Retorna HTML do header
+  renderFooter()             // Retorna HTML do footer
+  updateActiveNav(path)      // Marca link ativo
+};
 ```
 
-### templates.js - Templates
+---
 
-```javascript
-const Templates = {
-    home()                   // Template da home
-    sobre()                  // Template sobre
-    projetos()               // Template projetos
-    cadastro()               // Template cadastro
-    doacoes()                // Template doações
-    transparencia()          // Template transparência
-    blog()                   // Template blog
-    contato()                // Template contato
-}
-```
+## 🧪 Testes
 
-## 🎓 Conceitos Aplicados
+### Checklist de Funcionalidades
 
-### JavaScript Avançado
+- [x] Navegação entre todas as 8 páginas
+- [x] Renderização de templates
+- [x] Validação de formulários (cadastro)
+- [x] Validação de formulários (contato)
+- [x] Validação de formulários (doações)
+- [x] Filtros de projetos funcionando
+- [x] Máscaras de input (CPF, telefone, CEP)
+- [x] Persistência no localStorage
+- [x] Links ativos na navegação
+- [x] Responsividade (mobile, tablet, desktop)
+- [ ] Testes de acessibilidade (pendente)
+- [ ] Testes de performance (pendente)
 
-- ✅ Classes ES6
-- ✅ Arrow Functions
-- ✅ Template Literals
-- ✅ Destructuring
-- ✅ Spread Operator
-- ✅ Promises (setTimeout simula async)
-- ✅ Event Delegation
-- ✅ Intersection Observer API
-- ✅ LocalStorage API
-- ✅ Canvas API
+### Navegadores Testados
 
-### Padrões de Projeto
+- ✅ Chrome 120+
+- ✅ Firefox 120+
+- ✅ Edge 120+
+- ⚠️ Safari 17+ (teste parcial)
 
-- ✅ **Module Pattern**: Objetos singleton (Templates, Validation, etc.)
-- ✅ **Observer Pattern**: Event listeners e hashchange
-- ✅ **Template Method**: Sistema de templates
-- ✅ **Factory Pattern**: Criação dinâmica de HTML
+---
 
-### Boas Práticas
+## 🚧 Roadmap - Próximas Implementações
 
-- ✅ Código modular e organizado
-- ✅ Funções puras (templates)
-- ✅ Separação de responsabilidades
-- ✅ Comentários descritivos
-- ✅ Nomenclatura clara
-- ✅ DRY (Don't Repeat Yourself)
+### Curto Prazo (Entregável 4)
 
-## 🚧 Melhorias Futuras
+- [ ] **Acessibilidade WCAG 2.1 AA**
+  - [ ] Navegação por teclado completa
+  - [ ] ARIA labels e landmarks
+  - [ ] Contraste de cores validado
+  - [ ] Testes com leitores de tela
+  
+- [ ] **Otimização**
+  - [ ] Minificação de CSS/JS
+  - [ ] Compressão de imagens
+  - [ ] Lazy loading
+  - [ ] Service Worker para cache
 
-- [ ] Backend real (Node.js + Express)
-- [ ] Banco de dados (MongoDB/PostgreSQL)
-- [ ] Autenticação de usuários
-- [ ] Painel administrativo
-- [ ] Testes automatizados (Jest)
-- [ ] Build system (Vite)
-- [ ] TypeScript
-- [ ] PWA (Service Workers)
-- [ ] Modo escuro
-- [ ] i18n (Internacionalização)
+- [ ] **Git/GitHub**
+  - [ ] Histórico de commits organizado
+  - [ ] Pull Requests documentados
+  - [ ] Issues rastreadas
+  - [ ] Releases versionadas
 
-## 🏆 Diferenciais do Projeto
+### Médio Prazo
 
-### 1. SPA Puro (Vanilla JS)
+- [ ] **Build Tools**
+  - [ ] Configurar Vite ou Webpack
+  - [ ] npm scripts para build
+  - [ ] Minificação automatizada
+  - [ ] Sourcemaps
 
-- Sem React, Vue ou Angular
-- Demonstra domínio dos fundamentos
-- Controle total sobre o código
+- [ ] **Testes**
+  - [ ] Testes unitários (Vitest)
+  - [ ] Testes E2E (Playwright)
+  - [ ] Cobertura de código
 
-### 2. Validação Robusta
+### Longo Prazo
 
-- Sistema completo de validação
-- Feedback visual em tempo real
-- Máscaras automáticas
+- [ ] **Backend**
+  - [ ] API REST com Node.js
+  - [ ] Banco de dados
+  - [ ] Autenticação
+  - [ ] Painel administrativo
 
-### 3. Bootstrap 5 Completo
+- [ ] **PWA**
+  - [ ] Manifest.json
+  - [ ] Service Workers avançados
+  - [ ] Modo offline
+  - [ ] Instalável
 
-- Zero CSS customizado
-- Componentes prontos
-- Design system consistente
+---
 
-### 4. Canvas API
+## 📊 Estatísticas do Projeto
 
-- Gráficos desenhados manualmente
-- Controle total sobre renderização
-- Performance otimizada
+| Métrica | Valor |
+|---------|-------|
+| **Linhas de Código** | ~3.000 |
+| **Arquivos JavaScript** | 5 |
+| **Páginas (Templates)** | 8 |
+| **Componentes** | 2 (Header, Footer) |
+| **Formulários** | 4 |
+| **Commits** | 🎯 Em desenvolvimento |
+| **Tamanho Total** | ~500 KB |
 
-### 5. Código Limpo
+---
 
-- Organização modular
-- Comentários descritivos
-- Fácil manutenção
+## 🤝 Como Contribuir
+
+### Fluxo de Contribuição
+
+1. **Fork** o repositório
+2. **Clone** seu fork
+
+   ```bash
+   git clone https://github.com/SEU_USUARIO/code-for-all.git
+   ```
+
+3. **Crie** uma branch
+
+   ```bash
+   git checkout -b feature/minha-feature
+   ```
+
+4. **Faça** suas alterações
+5. **Commit** com mensagem descritiva
+
+   ```bash
+   git commit -m "feat(spa): add new page"
+   ```
+
+6. **Push** para seu fork
+
+   ```bash
+   git push origin feature/minha-feature
+   ```
+
+7. **Abra** um Pull Request
+
+### Padrões de Código
+
+- ✅ Usar ES6+ (const/let, arrow functions, template literals)
+- ✅ Comentários em português
+- ✅ Indentação de 2 espaços
+- ✅ Nomenclatura clara e descritiva
+- ✅ Funções pequenas e focadas
+
+---
 
 ## 📄 Licença
 
-Projeto acadêmico desenvolvido para fins educacionais.
+Este projeto é acadêmico, desenvolvido para fins educacionais.
 
-## 👥 Autor
-
-**Guilherme França**  
-Desenvolvimento Front-End - Ciência da Computação  
-Universidade Cruzeiro do Sul
-
-## 📞 Contato
-
-- GitHub: [@guiireal](https://github.com/guiireal)
-- E-mail: contato@codeforall.org
+**MIT License** - Livre para uso, modificação e distribuição.
 
 ---
 
-## 📝 Changelog
+## 📞 Suporte
 
-### v3.0.0 - Entregável 3 (Outubro 2025)
+### Links
 
-- ✨ **Nova**: Arquitetura SPA completa
-- ✨ **Nova**: Sistema de roteamento baseado em hash
-- ✨ **Nova**: Templates dinâmicos JavaScript
-- ✨ **Nova**: Validação avançada de formulários
-- ✨ **Nova**: Integração completa Bootstrap 5
-- ✨ **Nova**: Animações e transições
-- 🔧 **Melhorado**: Gráficos adaptados para SPA
-- 🔧 **Melhorado**: Responsividade
-- 🗑️ **Removido**: CSS customizado
-- 🗑️ **Removido**: Múltiplos arquivos HTML
+- 🌐 **Repositório**: <https://github.com/guiireal/code-for-all>
+- 🐛 **Issues**: <https://github.com/guiireal/code-for-all/issues>
+- 📧 **E-mail**: <contato@codeforall.org>
 
-### v2.0.0 - Entregável 2 (Setembro 2025)
+### Redes Sociais (Fictícias)
 
-- Formulários validados
-- Gráficos Canvas
-- Múltiplas páginas HTML
-
-### v1.0.0 - Entregável 1 (Agosto 2025)
-
-- Estrutura HTML básica
-- Wireframes
-- Layout inicial
+- 📘 Facebook: @codeforallbrasil
+- 📷 Instagram: @codeforall.br
+- 💼 LinkedIn: Code for All Brasil
+- 🐦 Twitter: @codeforall_br
 
 ---
 
-**Última atualização**: 13 de Outubro de 2025  
-**Versão**: 3.0.0 (SPA - Single Page Application)  
-**Status**: ✅ Pronto para entrega
+## 🌟 Agradecimentos
+
+Obrigado por conferir o projeto **Code for All**!
+
+Se este projeto foi útil, considere dar uma ⭐ no repositório!
+
+---
+
+Desenvolvido com ❤️ para democratizar o acesso à tecnologia
+
+**Última atualização**: 16 de Outubro de 2025  
+**Versão**: 4.0.0-dev (Em desenvolvimento)  
+**Status**: 🎯 Entregável 4 em andamento
+
+---
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![Made with JavaScript](https://img.shields.io/badge/Made%20with-JavaScript-yellow.svg)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+[![Bootstrap 5](https://img.shields.io/badge/Bootstrap-5.3.2-purple.svg)](https://getbootstrap.com/)
+
+</div>
