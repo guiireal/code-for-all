@@ -302,8 +302,8 @@ const Templates = {
                                      class="card-img-top" 
                                      alt="Carlos Mendes">
                                 <div class="card-body text-center">
-                                    <h5 class="card-title">Carlos Mendes</h5>
-                                    <p class="text-muted">Diretor Executivo</p>
+                                    <h5 class="card-title">Fernanda Lima</h5>
+                                    <p class="text-muted">Coordenadora de Projetos</p>
                                 </div>
                             </div>
                         </div>
@@ -313,8 +313,8 @@ const Templates = {
                                      class="card-img-top" 
                                      alt="Fernanda Lima">
                                 <div class="card-body text-center">
-                                    <h5 class="card-title">Fernanda Lima</h5>
-                                    <p class="text-muted">Coordenadora de Projetos</p>
+                                    <h5 class="card-title">Carlos Mendes</h5>
+                                    <p class="text-muted">Diretor Executivo</p>
                                 </div>
                             </div>
                         </div>
@@ -324,8 +324,8 @@ const Templates = {
                                      class="card-img-top" 
                                      alt="Roberto Silva">
                                 <div class="card-body text-center">
-                                    <h5 class="card-title">Roberto Silva</h5>
-                                    <p class="text-muted">Gestor de Voluntários</p>
+                                    <h5 class="card-title">Patricia Santos</h5>
+                                    <p class="text-muted">Analista de Comunicação</p>
                                 </div>
                             </div>
                         </div>
@@ -335,8 +335,8 @@ const Templates = {
                                      class="card-img-top" 
                                      alt="Patricia Santos">
                                 <div class="card-body text-center">
-                                    <h5 class="card-title">Patricia Santos</h5>
-                                    <p class="text-muted">Analista de Comunicação</p>
+                                    <h5 class="card-title">Roberto Silva</h5>
+                                    <p class="text-muted">Gestor de Voluntários</p>
                                 </div>
                             </div>
                         </div>

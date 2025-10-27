@@ -2330,3 +2330,153 @@ footer > p {
 .shadow-xl {
   box-shadow: var(--shadow-xl);
 }
+
+
+/* ========================================
+   GRÁFICOS E CHARTS - RESPONSIVIDADE
+   ======================================== */
+
+/* Containers de gráficos responsivos */
+.chart-container,
+.charts-wrapper,
+[id*="chart"],
+[class*="chart"] {
+  max-width: 100%;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: visible;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Canvas e elementos de gráfico */
+canvas {
+  max-width: 100% !important;
+  height: auto !important;
+  display: block;
+}
+
+/* Chart.js e bibliotecas similares */
+.chartjs-container,
+.chart-wrapper,
+.graph-container {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+}
+
+/* SVG gráficos */
+svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Responsividade tablet (max-width: 991px) */
+@media (max-width: 991px) {
+  .chart-container,
+  .charts-wrapper,
+  [id*="chart"],
+  [class*="chart"],
+  .chartjs-container,
+  .chart-wrapper {
+    max-width: 100%;
+    width: 100%;
+    margin: 0 auto;
+    overflow-x: auto;
+    overflow-y: visible;
+  }
+
+  canvas {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  svg {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* Responsividade mobile (max-width: 767px) */
+@media (max-width: 767px) {
+  .chart-container,
+  .charts-wrapper,
+  [id*="chart"],
+  [class*="chart"],
+  .chartjs-container,
+  .chart-wrapper,
+  .graph-container {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    padding: 0;
+  }
+
+  canvas {
+    max-width: 100% !important;
+    min-width: 100%;
+    min-height: 300px;
+    height: auto !important;
+    display: block;
+  }
+
+  /* Evitar que gráficos vazem do container */
+  .card canvas,
+  .card [class*="chart"] {
+    max-width: calc(100vw - 32px);
+    margin: 0 auto;
+  }
+
+  svg {
+    max-width: 100%;
+    min-width: 100%;
+    height: auto;
+  }
+
+  /* Ajuste para sections com gráficos */
+  section:has(canvas),
+  section:has([class*="chart"]) {
+    overflow-x: hidden;
+  }
+}
+
+/* Responsividade mobile pequeno (max-width: 575px) */
+@media (max-width: 575px) {
+  .chart-container,
+  .charts-wrapper,
+  [id*="chart"],
+  [class*="chart"],
+  .chartjs-container,
+  .chart-wrapper,
+  .graph-container {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+
+  canvas {
+    max-width: 100% !important;
+    min-width: 280px;
+    min-height: 250px;
+    height: auto !important;
+  }
+
+  .card canvas {
+    max-width: calc(100vw - 48px);
+  }
+
+  svg {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Garantir que o container não vaze */
+  .container canvas,
+  .container [class*="chart"] {
+    max-width: 100%;
+  }
+}
